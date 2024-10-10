@@ -1,0 +1,36 @@
+.attribute__container {
+  display: flex;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+  flex: 1;
+}
+
+.attribute__horizontal {
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.attribute__vertical {
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.attribute__name {
+  /* color: rgb(115, 115, 115); */
+}
+
+.attribute__value {
+  /* color: rgb(38, 38, 38); */
+}
+
+.attribute__name,
+.attribute__value {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.attribute__horizontal .attribute__value {
+  text-align: end;
+}

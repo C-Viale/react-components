@@ -1,0 +1,23 @@
+.radio-group__container {
+  flex: 1 1 0%;
+}
+
+.radio-group__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.radio-group__options {
+  display: flex;
+
+  &.horizontal {
+    column-gap: 1rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+  &.vertical {
+    flex-direction: column;
+  }
+}

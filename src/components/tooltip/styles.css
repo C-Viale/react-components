@@ -1,0 +1,53 @@
+.tooltip__content {
+  position: relative;
+  display: inline-block; /* Needed to properly align the tooltip */
+  cursor: pointer; /* Optional */
+  width: fit-content;
+}
+
+.tooltip__container {
+  position: absolute;
+  background-color: #f2f2f2;
+  height: fit-content;
+  border-radius: 4px;
+  z-index: 3000;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  width: fit-content;
+  max-width: 300px;
+  padding: 0.5rem;
+  border: 1px solid #c5c5c5;
+  box-shadow: 0 0 4px 1px rgba(197, 197, 197, 0.5);
+}
+
+/* Positioning */
+.tooltip__container.top {
+  bottom: 100%;
+  left: 50%;
+}
+
+.tooltip__container.right {
+  top: 50%;
+  left: 100%;
+}
+
+.tooltip__container.bottom {
+  top: 100%;
+  left: 50%;
+}
+
+.tooltip__container.left {
+  top: 50%;
+}
+
+.tooltip__title {
+  color: #5e5e5e;
+  font-weight: 800;
+}
+.tooltip__details {
+  color: #6d6d6d;
+}
+.tooltip__divider {
+  border-top: 1px solid #c5c5c5;
+  margin-bottom: 0.5rem;
+}

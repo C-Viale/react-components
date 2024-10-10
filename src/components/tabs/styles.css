@@ -1,0 +1,30 @@
+.tabs__container {
+  display: flex;
+  /* gap: 0.5rem; */
+}
+
+.tabs__item {
+  color: rgb(100, 116, 139);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 1rem;
+  transition: 0.15s all ease-in;
+
+  &:hover {
+    color: gray;
+    border-color: gray;
+    box-shadow: 0 -2px 0 0 rgb(59, 130, 246) inset;
+  }
+
+  &.selected {
+    color: rgb(59, 130, 246);
+    box-shadow: 0 -2px 0 0 rgb(59, 130, 246) inset;
+  }
+
+  box-shadow: 0 -1px 0 0 rgb(221, 221, 221) inset;
+}
+
+.tabs__item-icon {
+  display: flex;
+  justify-content: center;
+}

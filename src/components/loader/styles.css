@@ -1,0 +1,15 @@
+.loader__container {
+  width: fit-content;
+}
+
+.loader__spinner {
+  display: grid;
+  place-items: center;
+}
+
+.loader__hint {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 0.25rem;
+}

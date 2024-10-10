@@ -1,0 +1,124 @@
+.picker__container {
+  width: 320px;
+  pointer-events: all !important;
+}
+
+.picker__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid rgb(223, 223, 223);
+}
+
+.picker__year__container,
+.picker__month__container,
+.picker__day__container {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem;
+}
+
+.picker__year__container {
+  grid-template-columns: repeat(2, 1fr);
+}
+.picker__month__container {
+  grid-template-columns: repeat(3, 1fr);
+}
+.picker__day__container {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.picker__year__item,
+.picker__month__item,
+.picker__day__item {
+  background-color: rgb(248, 250, 252);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+
+  &:not(:disabled):hover {
+    outline: 1px solid rgb(143, 143, 143);
+  }
+
+  &:disabled {
+    color: rgb(212, 212, 212);
+    background-color: rgb(248, 250, 252);
+    cursor: not-allowed;
+  }
+
+  &.today {
+    background-color: rgb(205, 236, 247);
+  }
+
+  &.selected {
+    color: white;
+    background-color: #3b82f6;
+  }
+}
+
+.picker__day__item {
+  padding: 0.25rem;
+  background-color: transparent;
+
+  &.outside-month {
+    color: rgb(212, 212, 212);
+  }
+}
+
+.picker__day__name {
+  text-align: center;
+  color: rgb(143, 143, 143);
+  margin-bottom: 0.5rem;
+}
+
+.picker__header__text,
+.picker__header__icon {
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(157, 157, 157);
+  }
+
+  &:disabled {
+    color: rgb(225, 225, 225);
+  }
+}
+
+/* components */
+
+.date-picker__container,
+.month-picker__container,
+.year-picker__container {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+.date-picker::-webkit-inner-spin-button,
+.date-picker::-webkit-calendar-picker-indicator,
+.month-picker::-webkit-inner-spin-button,
+.month-picker::-webkit-calendar-picker-indicator,
+.year-picker::-webkit-inner-spin-button,
+.year-picker::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.date-picker__popover,
+.month-picker__popover,
+.year-picker__popover {
+  position: absolute;
+  background-color: white;
+  min-height: 200px;
+  height: fit-content;
+  border-radius: 4px;
+  z-index: 3000;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  width: fit-content;
+  box-shadow: 0 1px 4px 1px rgba(197, 197, 197, 0.5);
+}

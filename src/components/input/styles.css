@@ -1,54 +1,11 @@
-.input__wrapper {
-  width: 100%;
-}
+/* #region main components */
+.cvl-input {
+  height: 36px;
 
-.input__label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-}
-
-.input__container {
-  position: relative;
-
-  &:has(.input__left_icon) .input {
-    padding-left: 2.6rem;
-  }
-
-  &:has(.input__right_icon, .input__password_icon, .input__clear_button) .input {
-    padding-right: 2.6rem;
-  }
-}
-
-.input__left_icon,
-.input__right_icon,
-.input__password_icon,
-.input__clear_button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #94a3b8;
-  font-size: 20px;
-}
-
-.input__left_icon {
-  left: 0.8rem;
-}
-
-.input__right_icon,
-.input__password_icon {
-  right: 0.8rem;
-}
-
-.input__password_icon:hover {
-  color: rgb(59, 130, 246);
-  cursor: pointer;
-}
-
-.input {
-  height: 2.5rem;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
+  border-style: solid;
+  border-color: #e5e5e5;
+  border-width: 1px;
+  border-radius: var(--cvl-border-radius);
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -56,43 +13,112 @@
 
   &:disabled {
     cursor: not-allowed;
+    background-color: #f5f5f5;
   }
 
   &:not(:disabled):hover {
-    border-color: rgb(59, 130, 246);
-  }
-  &:focus {
-    box-shadow: 0 0 1px 3px rgb(196, 224, 250);
-    border-color: rgb(59, 130, 246) !important;
+    border-color: #aaa;
   }
 
-  &:active,
-  &:focus-visible {
-    outline: none;
+  &:focus {
+    outline: 1px solid black;
+    border-color: transparent !important;
+  }
+
+  &:required:not(:placeholder-shown):user-invalid,
+  &:not(:required):user-invalid {
+    border: 1px solid #ef4343;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
   }
 }
 
-.input__helper_container {
+.cvl-input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  height: 21px;
+}
+
+.cvl-input-error-message {
   padding-top: 0.2rem;
   font-size: 0.7rem;
   color: #ef4343;
-  height: 0;
+  height: 100%;
   transition: all 0.2s ease-in;
   overflow: hidden;
   font-weight: 600;
 }
+/* #endregion */
 
-.input__wrapper:has(.input:required:not(:placeholder-shown):invalid, .input:not(:required):invalid)
-  .input__helper_container {
+/* #region containers */
+.cvl-input-container {
+  width: 100%;
+}
+
+.cvl-input-wrapper {
+  position: relative;
+
+  &:has(.cvl-input-left-icon) .cvl-input {
+    padding-left: 2.6rem;
+  }
+
+  &:has(.cvl-input-right-icon, .cvl-input-password-icon, .cvl-input-clear)
+    .cvl-input {
+    padding-right: 2.6rem;
+  }
+}
+/* #endregion */
+
+/* #region icons */
+.cvl-input-left-icon,
+.cvl-input-right-icon,
+.cvl-input-password-icon,
+.cvl-input-clear {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 20px;
+}
+
+.cvl-input-left-icon,
+.cvl-input-right-icon {
+  pointer-events: none;
+}
+
+.cvl-input-left-icon {
+  left: 0.8rem;
+}
+
+.cvl-input-right-icon,
+.cvl-input-password-icon {
+  right: 0.8rem;
+}
+
+.cvl-input-password-icon:hover {
+  color: rgb(59, 130, 246);
+  cursor: pointer;
+}
+
+.cvl-input-container:has(
+    .cvl-input:required:not(:placeholder-shown):user-invalid,
+    .cvl-input:not(:required):user-invalid
+  )
+  .cvl-input-error-message {
   height: 1.2rem;
 }
 
-.input:required:not(:placeholder-shown):invalid,
-.input:not(:required):invalid {
-  border: 1px solid #ef4343;
-}
-
-.input__clear_button {
+.cvl-input-clear {
   right: 0.9rem;
   cursor: pointer;
 
@@ -104,3 +130,15 @@
     color: red;
   }
 }
+
+.cvl-input-throbber {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent #646464 #646464 transparent !important;
+  animation: Spin 1s linear infinite;
+}
+/* #endregion */

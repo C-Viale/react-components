@@ -1,4 +1,14 @@
-import { InputMaskType } from "@components/input";
+
+export type InputMaskType =
+  | "alphanumeric"
+  | "cep"
+  | "cpf"
+  | "cnpj"
+  | "number"
+  | "phone"
+  | "hours"
+  | "ip"
+  | "upperCase";
 
 export type DateFormatType =
   | "date"
@@ -73,7 +83,7 @@ export function numberFormat(value: string): string {
   return value.replace(/[^0-9]/g, "");
 }
 
-export function inputFormat(value: string, mask?: InputMaskType) {
+export function format(value: string, mask?: InputMaskType) {
   if (!mask) return value;
 
   switch (mask) {

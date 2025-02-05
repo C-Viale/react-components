@@ -1,0 +1,89 @@
+.cvl-button {
+  --cvl-button-text-color: var(--cvl-text-inverted);
+  color: var(--cvl-button-text-color);
+  min-height: 2rem;
+
+  border-radius: 4px;
+  position: relative;
+  font-weight: 600;
+  white-space: nowrap;
+
+  transition-duration: 0.15s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color, width, height, box-shadow;
+
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  &.cvl-button-full {
+    width: 100%;
+  }
+
+  &:disabled {
+    color: rgb(148, 163, 184);
+    background-color: rgb(229, 229, 229);
+    cursor: not-allowed;
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:active {
+    outline: 1px solid #2563eb;
+  }
+
+  &:hover:not(:disabled),
+  &.cvl-button-loading {
+    box-shadow: 0 0 50px 50px hsla(0, 0%, 0%, 0.2) inset;
+  }
+}
+
+.cvl-button-loading {
+  pointer-events: none;
+}
+
+.cvl-button-throbber {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  background-color: transparent;
+  border-color: transparent var(--cvl-button-text-color)
+    var(--cvl-button-text-color) transparent;
+
+  animation: Spin 1s linear infinite;
+}
+
+.cvl-button-throbber-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cvl-button-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+
+  &.cvl-button-content-hidden {
+    opacity: 0;
+  }
+}
+
+.cvl-button-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* #region variants */
+.cvl-button-primary {
+  background-color: var(--cvl-primary);
+}
+
+.cvl-button-danger {
+  background-color: var(--cvl-danger);
+}
+/* #endregion */
